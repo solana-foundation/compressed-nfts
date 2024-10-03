@@ -1,18 +1,18 @@
 import { dasApi } from "@metaplex-foundation/digital-asset-standard-api";
 import {
-	getAssetWithProof,
-	mplBubblegum,
-	transfer,
+  getAssetWithProof,
+  mplBubblegum,
+  transfer,
 } from "@metaplex-foundation/mpl-bubblegum";
 import {
-	keypairIdentity,
-	publicKey as UMIPublicKey,
+  keypairIdentity,
+  publicKey as UMIPublicKey,
 } from "@metaplex-foundation/umi";
 import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
 import { base58 } from "@metaplex-foundation/umi/serializers";
 import {
-	getExplorerLink,
-	getKeypairFromFile,
+  getExplorerLink,
+  getKeypairFromFile,
 } from "@solana-developers/helpers";
 import { clusterApiUrl } from "@solana/web3.js";
 
@@ -34,13 +34,11 @@ const assetId = UMIPublicKey("D4A8TYkKE5NzkqBQ4mPybgFbAUDN53fwJ64b8HwEEuUS");
 const assetWithProof = await getAssetWithProof(umi, assetId);
 
 let uintSig = await (
-	await transfer(umi, {
-		...assetWithProof,
-		leafOwner: umi.identity.publicKey,
-		newLeafOwner: UMIPublicKey(
-			"J63YroB8AwjDVjKuxjcYFKypVM3aBeQrfrVmNBxfmThB"
-		),
-	}).sendAndConfirm(umi)
+  await transfer(umi, {
+    ...assetWithProof,
+    leafOwner: umi.identity.publicKey,
+    newLeafOwner: UMIPublicKey("J63YroB8AwjDVjKuxjcYFKypVM3aBeQrfrVmNBxfmThB"),
+  }).sendAndConfirm(umi)
 ).signature;
 
 const b64sig = base58.deserialize(uintSig);
