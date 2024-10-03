@@ -3,8 +3,8 @@ import { createTree, mplBubblegum } from "@metaplex-foundation/mpl-bubblegum";
 import { generateSigner, keypairIdentity } from "@metaplex-foundation/umi";
 import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
 import {
-	getExplorerLink,
-	getKeypairFromFile,
+  getExplorerLink,
+  getKeypairFromFile,
 } from "@solana-developers/helpers";
 import { clusterApiUrl } from "@solana/web3.js";
 
@@ -22,9 +22,9 @@ umi.use(keypairIdentity(umiKeypair)).use(mplBubblegum()).use(dasApi());
 
 const merkleTree = generateSigner(umi);
 const builder = await createTree(umi, {
-	merkleTree,
-	maxDepth: 14,
-	maxBufferSize: 64,
+  merkleTree,
+  maxDepth: 14,
+  maxBufferSize: 64,
 });
 await builder.sendAndConfirm(umi);
 

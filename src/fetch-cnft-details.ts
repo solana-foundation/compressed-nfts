@@ -1,14 +1,14 @@
 import { dasApi } from "@metaplex-foundation/digital-asset-standard-api";
 import { mplBubblegum } from "@metaplex-foundation/mpl-bubblegum";
 import {
-	keypairIdentity,
-	publicKey as UMIPublicKey,
+  keypairIdentity,
+  publicKey as UMIPublicKey,
 } from "@metaplex-foundation/umi";
 import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
 import { getKeypairFromFile } from "@solana-developers/helpers";
 
 const umi = createUmi(
-	"https://devnet.helius-rpc.com/?api-key=YOUR_API_KEY_GOES_HERE"
+  "https://devnet.helius-rpc.com/?api-key=YOUR_API_KEY_GOES_HERE"
 );
 
 // load keypair from local file system
